@@ -1,0 +1,73 @@
+#my bash-history
+   85  ldd /bin/ls | grep selinux
+   86  ls -l /etc/selinux
+   87  ls -l /etc/selinux/targeted/
+   88  id -Z
+   89  ls -Z /etc/passwd /etc/group /etc/shadow
+   90  ls -Z /etc/login.defs /etc/sudoers
+   91  ls -Z /usr/bin/passwd
+   92  ls -Z /usr/sbin/useradd
+   93  getfattr -n security.selinux /etc/passwd
+   94  ps Zaux
+   95  ls /proc/$$/attr
+   96  ps Z $(pgrep passwd)
+   97  sudo netstat -tnlpZ
+   98  sestatus
+   99  getenforce
+  100  cat /sys/fs/selinux/enforce
+  101  nano /etc/selinux/config
+  102  sudo nano /etc/selinux/config
+  103  getsebool -a | grep httpd
+  104  sudo seinfo
+  105  seinfo
+  106  seinfo -cfile -x
+  107  seinfo --class | grep file
+  108  seinfo --class file -x
+  109  seinfo --common file -x
+  110  seinfo --class dir -x
+  111  seinfo --class blk_file -x
+  112  seinfo --class chr_file -x
+  113  seinfo --class Ink_file -x
+  114  seinfo --class lnk_file -x
+  115  seinfo --class fifo_file -x
+  116  seinfo --class sock_file -x
+  117  seinfo --class filesystem -x
+  118  grep 'httpd_.*_t' /etc/selinux/targeted/contexts/files/file_contexts
+  119  sudo semanage fcontext -l
+  120  sudo semanage fcontext -l | head
+  121  ls
+  122  touch delete_later
+  123  ls -Z .
+  124  cd ..
+  125  ls -Z .
+  126  cd regina/
+  127  ls
+  128  cp delete_later /tmp
+  129  cd
+  130  cd /
+  131  ls
+  132  cd tmp/
+  133  ls
+  134  ls -Z delete_later 
+  135  echo "при копировании контекст нового файла отличается от прошлого"
+  136  chcon -t samba_share_t delete_later 
+  137  ls -Z delete_later 
+  138  restorecon -v delete_later 
+  139  /sbin/restorecon -v delete_later 
+  140  chcon -t user_tmp_t delete_later 
+  141  ls -Z delete_later 
+  142  rm delete_later 
+  143  cd
+  144  ls
+  145  rm delete_later 
+  146  rm mephi.service 
+  147  sesearch -T -s httpd_t -t var_log_t
+  148  sesearch -T -s httpd_t tmp_t
+  149  sesearch --allow --source passwd_t --target shadow_t --class file
+  150  sudo sesearch -A -s passwd_t -t passwd_exec_t -c file
+  151  sesearch -A -s unconfined_t -t passwd_t -c process
+  152  sesearch --type_trans -s unconfined_t -t passwd_exec_t
+  153  history
+  154  cd bos/lab-2/
+  155  touch lab_selinux.txt
+  156  history > lab_selinux.txt 
