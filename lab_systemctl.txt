@@ -1,0 +1,29 @@
+# содерживое юнит-файлов и вывод журнала
+[Unit]
+Description=MEPhI hello service
+After=sshd.service
+[Service]
+ExecStart=/usr/bin/printf "Hello, MephI"
+[Install]
+WantedBy=multi-user.target
+# --------------------------------------для mephi.service
+[Unit]
+Description="CHeck for MEPHI file in /tmp"
+After=sshd.service
+[Path]
+PathExists=/tmp/mephi.file
+Unit=mephi.service
+[Install]
+WantedBy=multi-user.target
+#---------------------------------------для mephi.path
+-- Logs begin at Mon 2021-03-22 22:23:59 MSK. --
+мая 24 14:23:29 regina systemd[1]: Started MEPhI hello service.
+мая 24 14:23:29 regina printf[2605]: Hello, MephI
+мая 24 14:23:29 regina systemd[1]: mephi.service: Succeeded.
+мая 24 14:26:24 regina systemd[1]: Started MEPhI hello service.
+мая 24 14:26:24 regina printf[2651]: Hello, MephI
+мая 24 14:26:24 regina systemd[1]: mephi.service: Succeeded.
+мая 24 14:31:51 regina systemd[1]: Started MEPhI hello service.
+мая 24 14:31:51 regina printf[2748]: Hello, MephI
+мая 24 14:31:51 regina systemd[1]: mephi.service: Succeeded.
+#----------------------------------------вывод журнала
